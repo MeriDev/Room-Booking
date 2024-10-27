@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/assets/images/Mlogo-white.png';
-
+import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 const Header = () => {
   return (
     <header className="bg-gray-100">
@@ -10,7 +10,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                className="h-12 w-12"
+                className="h-8 w-8"
                 src={logo}
                 alt="Bookit"
                 priority={true}
@@ -45,22 +45,23 @@ const Header = () => {
                 href="login.html"
                 className="mr-3 text-gray-800 hover:text-gray-600"
               >
-                <i className="fa fa-sign-in"></i> Login
+                <FaSignInAlt className="inline mr-1" /> Login
               </Link>
               <Link
                 href="register.html"
                 className="mr-3 text-gray-800 hover:text-gray-600"
               >
-                <i className="fa fa-user"></i> Register
+                <FaUser className="inline mr-1" /> Register
               </Link>
               <Link href="my-rooms.html">
-                <i className="fa fa-building"></i> My Rooms
+                <FaBuilding className="inline mr-1" /> My Rooms
               </Link>
               <Link
                 href="login.html"
                 className="mx-3 text-gray-800 hover:text-gray-600"
               >
-                <i className="fa fa-sign-out"></i> Sign Out
+                <FaSignOutAlt className="inline mr-1" />
+                Sign Out
               </Link>
             </div>
           </div>

@@ -1,8 +1,22 @@
+import rooms from '@/data/rooms.json';
+import Heading from '@/components/Heading';
+import RoomCard from '@/components/RoomCard';
 
-export default function Home() {
+function Home() {
   return (
     <>
-      <h1>Book it</h1>
+      {rooms.length > 0 ? (
+        <div>
+          <Heading title="Available Rooms" />
+          {rooms.map(room => (
+            <RoomCard key={room.$id} room={room} />
+          ))}
+        </div>
+      ) : (
+        <p>No romms available at the moment.</p>
+      )}
     </>
   );
 }
+
+export default Home;
