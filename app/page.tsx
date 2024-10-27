@@ -1,8 +1,10 @@
-import rooms from '@/data/rooms.json';
+// import rooms from '@/data/rooms.json';
 import Heading from '@/components/Heading';
 import RoomCard from '@/components/RoomCard';
+import getAllRooms from './actions/getAllRooms';
 
-function Home() {
+async function Home() {
+  const rooms = await getAllRooms();
   return (
     <>
       {rooms.length > 0 ? (

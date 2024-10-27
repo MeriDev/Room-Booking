@@ -6,7 +6,12 @@ import rooms from '@/data/rooms.json';
 import Heading from '@/components/Heading';
 import BookingForm from '@/components/BookingForm';
 
-const Rooms = ({ params }) => {
+type ParamProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+const Rooms = ({ params }: ParamProps) => {
   const { id } = params;
   const room = rooms.find(room => room.$id === id);
 
