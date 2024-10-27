@@ -1,7 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const RoomCard = ({ room }) => {
+type RoomPropsTypes = {
+  room: {
+    $id: string;
+    name: string;
+    price_per_hour: number;
+    image: string;
+    availability: string;
+    address: string;
+    location: string;
+    amenities: string;
+    capacity: number;
+  };
+};
+
+const RoomCard = ({ room }: RoomPropsTypes) => {
   const imgSrc = `/images/rooms/${room.image}`;
 
   return (
@@ -17,15 +31,15 @@ const RoomCard = ({ room }) => {
         <div className="space-y-1">
           <h4 className="text-lg font-semibold">{room.name}</h4>
           <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Address:</span>
+            <span className="font-semibold text-gray-800"> Address: </span>
             {room.address}
           </p>
           <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Availability:</span>9
-            {room.availability}
+            <span className="font-semibold text-gray-800"> Availability: </span>
+            9{room.availability}
           </p>
           <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Price:</span>$
+            <span className="font-semibold text-gray-800"> Price: </span>$
             {room.price_per_hour}/hour
           </p>
         </div>

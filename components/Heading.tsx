@@ -1,4 +1,8 @@
-const Heading = ({ title }) => {
+type HeadingProp = {
+  title: string;
+};
+
+const Heading = ({ title }: HeadingProp) => {
   return (
     <section className="bg-white mb-5 shadow px-4 py-4">
       <h1 className="text-2xl font-bold tracking-tight text-gray-900">
