@@ -2,18 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { FaChevronLeft } from 'react-icons/fa';
-import rooms from '@/data/rooms.json';
+
 import Heading from '@/components/Heading';
 import BookingForm from '@/components/BookingForm';
+import getSingleRoom from '@/app/actions/getSingRoom';
 
 type ParamProps = {
   params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const Rooms = ({ params }: ParamProps) => {
+const Rooms = async ({ params }: ParamProps) => {
   const { id } = params;
-  const room = rooms.find(room => room.$id === id);
+  const room = await getSingleRoom(id);
 
   if (!room) {
     return <Heading title="Room Not Found" />;
