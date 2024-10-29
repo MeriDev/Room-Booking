@@ -13,10 +13,7 @@ import createSession from '../actions/createSession';
 const LoginPage = () => {
   const router = useRouter();
 
-  const [state, formAction] = useFormState<previousState, FormData>(
-    createSession,
-    {}
-  );
+  const [state, formAction] = useFormState<State, FormData>(createSession, {});
 
   useEffect(() => {
     if (state.error) {
