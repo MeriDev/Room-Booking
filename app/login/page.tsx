@@ -9,9 +9,12 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 
 import createSession from '../actions/createSession';
+import { useAuth } from '@/context/auth';
 
 const LoginPage = () => {
   const router = useRouter();
+
+  const { setIsAuthenticated } = useAuth();
 
   const [state, formAction] = useFormState<State, FormData>(createSession, {});
 
@@ -20,6 +23,7 @@ const LoginPage = () => {
       toast.error(state.error);
     }
     if (state.success) {
+      setIsAuthenticated(true);
       toast.success('Logged in successfully');
       router.push('/');
     }

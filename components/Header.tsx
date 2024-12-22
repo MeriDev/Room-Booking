@@ -2,32 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import logo from '@/assets/images/Mlogo-white.png';
 import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import destroySession from '@/app/actions/destroySession';
-import checkAuth from '@/app/actions/checkAuth';
+import { useAuth } from '@/context/auth';
 
 const Header = () => {
   const router = useRouter();
 
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
-
-  useEffect(() => {
-    const fetchAuthStaus = async () => {
-      const res = await checkAuth();
-      console.log(res);
-      setIsAuthenticated(res.isAuthenticated);
-    };
-
-    fetchAuthStaus();
-  }, []);
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const handleLogout = async () => {
     const { success, error } = await destroySession();
     if (success) {
+      setIsAuthenticated(false);
       toast.success('Logged Out Successfully');
       router.push('/login');
     } else {

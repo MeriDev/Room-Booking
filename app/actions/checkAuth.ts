@@ -23,7 +23,6 @@ async function checkAuth() {
         name: user.name,
         email: user.email,
       },
-      ck: sessionCookie.value,
     };
   } catch (error) {
     console.log('Authentication error', error);
