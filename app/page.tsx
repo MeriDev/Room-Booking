@@ -1,10 +1,12 @@
 // import rooms from '@/data/rooms.json';
+import getAllRooms from './actions/getAllRooms';
+
 import Heading from '@/components/Heading';
 import RoomCard from '@/components/RoomCard';
-import getAllRooms from './actions/getAllRooms';
 
 async function Home() {
   const rooms = await getAllRooms();
+
   return (
     <>
       {rooms.length > 0 ? (
@@ -15,7 +17,7 @@ async function Home() {
           ))}
         </div>
       ) : (
-        <p>No romms available at the moment.</p>
+        <p>No rooms available at the moment.</p>
       )}
     </>
   );

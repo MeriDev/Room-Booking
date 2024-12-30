@@ -9,9 +9,6 @@ type RoomPropsTypes = {
     image: string;
     availability: string;
     address: string;
-    location: string;
-    amenities: string;
-    capacity: string;
   };
 };
 
@@ -36,7 +33,7 @@ const RoomCard = ({ room }: RoomPropsTypes) => {
           </p>
           <p className="text-sm text-gray-600">
             <span className="font-semibold text-gray-800"> Availability: </span>
-            9{room.availability}
+            {room.availability}
           </p>
           <p className="text-sm text-gray-600">
             <span className="font-semibold text-gray-800"> Price: </span>$
