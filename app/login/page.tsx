@@ -11,6 +11,8 @@ import { toast } from 'react-toastify';
 import createSession from '../actions/createSession';
 import { useAuth } from '@/context/auth';
 
+type State = {};
+
 const LoginPage = () => {
   const router = useRouter();
 
