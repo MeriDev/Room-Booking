@@ -1,4 +1,4 @@
-type RoomPropsTypes = {
+export type RoomPropsTypes = {
   room: {
     $id: string;
     name: string;

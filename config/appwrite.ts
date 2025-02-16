@@ -19,21 +19,20 @@ const createAdminClient = async () => {
   };
 };
 
-const createSessionClient = async session => {
+const createSessionClient = async (session: any) => {
   const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT);
 
   if (session) {
     client.setSession(session);
-    console.log(session);
   }
 
   return {
     get account() {
       return new Account(client);
     },
-    get database() {
+    get databases() {
       return new Databases(client);
     },
   };
