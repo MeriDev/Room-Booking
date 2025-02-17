@@ -4,7 +4,7 @@ import getMyBookings from '../actions/getMyBookings';
 
 const BookingsPage = async () => {
   const bookings = await getMyBookings();
-  console.log(bookings);
+
   return (
     <>
       <Heading title="My Bookings" />
