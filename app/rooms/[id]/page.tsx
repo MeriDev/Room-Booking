@@ -5,7 +5,7 @@ import { FaChevronLeft } from 'react-icons/fa';
 
 import Heading from '@/components/Heading';
 import BookingForm from '@/components/BookingForm';
-import getSingleRoom from '@/app/actions/getSingRoom';
+import getSingleRoom from '@/app/actions/getSingleRoom';
 
 type ParamProps = {
   params: { id: string };
@@ -72,7 +72,7 @@ const Rooms = async ({ params }: ParamProps) => {
           </div>
         </div>
 
-        <BookingForm />
+        <BookingForm room={room} />
       </div>
     </>
   );
